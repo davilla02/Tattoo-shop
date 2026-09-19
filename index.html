@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Black Ink Tattoo Studio — custom tattoos, fine line, realism and traditional tattooing.">
+<title>Black Ink Tattoo Studio</title>
+<style>
+:root{--bg:#080808;--panel:#111;--text:#f5f5f5;--muted:#aaa;--accent:#d8b36a}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}.nav{position:fixed;top:0;width:100%;z-index:10;background:rgba(8,8,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid #222}
+.navin{max-width:1100px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;letter-spacing:3px}.logo span{color:var(--accent)}
+nav a{margin-left:24px;color:#ccc;font-size:14px}nav a:hover{color:var(--accent)}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:120px 24px 70px;background:radial-gradient(circle at center,#222 0,#080808 55%)}
+.hero h1{font-size:clamp(48px,9vw,100px);line-height:.95;letter-spacing:-4px}.hero p{max-width:650px;margin:25px auto;color:var(--muted);font-size:18px}
+.btn{display:inline-block;background:var(--accent);color:#080808;padding:14px 24px;border-radius:3px;font-weight:800;margin:8px}.btn.alt{background:transparent;color:#fff;border:1px solid #555}
+section{max-width:1100px;margin:auto;padding:90px 24px}h2{font-size:42px;margin-bottom:12px}.sub{color:var(--muted);margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--panel);border:1px solid #242424;padding:28px}.card h3{margin-bottom:10px}.card p{color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.shot{height:260px;background:linear-gradient(135deg,#181818,#303030);display:flex;align-items:end;padding:18px;font-weight:bold;overflow:hidden}.shot:nth-child(2){background:linear-gradient(135deg,#0f0f0f,#4b4030)}.shot:nth-child(3){background:linear-gradient(135deg,#252525,#111)}
+.booking{background:#101010;border:1px solid #262626;padding:35px;display:grid;grid-template-columns:1fr 1fr;gap:30px}.booking input,.booking textarea,.booking select{width:100%;padding:14px;margin:7px 0;background:#080808;border:1px solid #333;color:#fff}.booking textarea{min-height:120px}.full{grid-column:1/-1}
+footer{border-top:1px solid #222;text-align:center;padding:35px 20px;color:#777}
+@media(max-width:750px){nav{display:none}.grid,.gallery,.booking{grid-template-columns:1fr}.shot{height:220px}h2{font-size:34px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="navin"><div class="logo">BLACK<span>INK</span></div><nav><a href="#services">Services</a><a href="#work">Our Work</a><a href="#about">About</a><a href="#book">Book</a></nav></div></header>
+
+<main>
+<section class="hero">
+<div>
+<p style="letter-spacing:4px;color:var(--accent);font-weight:bold">TATTOO • ART • IDENTITY</p>
+<h1>YOUR STORY.<br>INKED.</h1>
+<p>Custom tattoos created with precision, character and a style made for you. Fine line, realism, blackwork and custom designs.</p>
+<a class="btn" href="#book">BOOK A SESSION</a><a class="btn alt" href="#work">VIEW OUR WORK</a>
+</div>
+</section>
+
+<section id="services">
+<h2>What We Do</h2><p class="sub">Professional tattooing with a personal approach.</p>
+<div class="grid">
+<div class="card"><h3>Custom Tattoos</h3><p>Bring your idea, reference or rough sketch. We turn it into a one-of-one tattoo.</p></div>
+<div class="card"><h3>Fine Line</h3><p>Clean, delicate designs with careful detail and elegant linework.</p></div>
+<div class="card"><h3>Blackwork & Realism</h3><p>Bold black pieces, shading and realistic artwork built to age beautifully.</p></div>
+</div>
+</section>
+
+<section id="work">
+<h2>Selected Work</h2><p class="sub">Replace these demo panels with your own tattoo photos.</p>
+<div class="gallery"><div class="shot">CUSTOM BLACKWORK</div><div class="shot">FINE LINE</div><div class="shot">REALISM</div></div>
+</section>
+
+<section id="about">
+<h2>About The Studio</h2><p class="sub">A clean, creative space where your idea becomes permanent art.</p>
+<div class="card"><p>Black Ink Tattoo Studio is a fictional starter brand. Replace this paragraph with your real studio story, artist bio, location and opening hours.</p><br><p><strong>Hours:</strong> Mon–Sat, 10:00–19:00<br><strong>Location:</strong> Add your studio address here<br><strong>Phone:</strong> Add your WhatsApp/phone number</p></div>
+</section>
+
+<section id="book">
+<h2>Book Your Tattoo</h2><p class="sub">This form opens WhatsApp with the booking details. Replace the WhatsApp number in the script below.</p>
+<div class="booking">
+<input id="name" placeholder="Your name"><input id="phone" placeholder="Phone / WhatsApp">
+<select id="style"><option>Choose tattoo style</option><option>Custom</option><option>Fine line</option><option>Blackwork</option><option>Realism</option></select>
+<input id="size" placeholder="Approx. size / placement">
+<textarea id="idea" class="full" placeholder="Tell us about your tattoo idea"></textarea>
+<button class="btn full" onclick="book()">SEND BOOKING REQUEST</button>
+</div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> Black Ink Tattoo Studio · All rights reserved</footer>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+function book(){
+ const studioWhatsApp="22800000000"; // Replace with your WhatsApp number, country code included.
+ const msg=`Tattoo booking request%0AName: ${encodeURIComponent(document.getElementById("name").value)}%0APhone: ${encodeURIComponent(document.getElementById("phone").value)}%0AStyle: ${encodeURIComponent(document.getElementById("style").value)}%0ASize/placement: ${encodeURIComponent(document.getElementById("size").value)}%0AIdea: ${encodeURIComponent(document.getElementById("idea").value)}`;
+ window.open(`https://wa.me/${studioWhatsApp}?text=${msg}`,"_blank");
+}
+</script>
+</body>
+</html>
